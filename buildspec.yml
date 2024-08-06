@@ -6,7 +6,6 @@ phases:
       nodejs: 18
     commands:
       - npm install
-      - composer install
   pre_build:
     commands:
       # Any pre-build commands if needed
