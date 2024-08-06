@@ -1,0 +1,26 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www/voxcatalog
+file_exists_behavior: OVERWRITE
+
+permissions:
+  - object: /var/www/voxcatalog
+    owner: ec2-user
+    group: ec2-user
+    mode: 775
+    type:
+      - directory
+
+  - object: /var/www/voxcatalog
+    owner: ec2-user
+    group: ec2-user
+    except: [/var/www/voxcatalog/storage, /var/www/voxcatalog/public/images]
+    mode: 644
+    type:
+      - file
+
+# hooks:
+#   AfterInstall:
+#     - location: scripts/permissions.sh
